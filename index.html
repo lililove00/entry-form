@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>売上アップ道場｜個別相談 事前シート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   設定：ここだけ書き換えればOK
+   =================================================================== */
+:root{
+  --green:      #3F5D45;   /* 深緑 */
+  --green-mid:  #6E8C5A;   /* 葉っぱ色 */
+  --green-pale: #DFE8D5;   /* 若草 */
+  --pink:       #E29A93;   /* くすみピンク */
+  --pink-pale:  #F8E1DC;   /* 淡ピンク */
+  --mustard:    #DFA945;   /* からし */
+  --cream:      #FBF5EA;   /* 生成り */
+  --paper:      #FFFCF6;   /* 紙 */
+  --ink:        #2E3A2E;   /* 文字 */
+  --line:       #C9D3BF;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Zen Maru Gothic', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  color:var(--ink);
+  background-color:var(--cream);
+  background-image:
+    radial-gradient(circle at 12% 8%,  rgba(226,154,147,.16) 0 22%, transparent 22%),
+    radial-gradient(circle at 88% 22%, rgba(110,140,90,.14) 0 20%, transparent 20%),
+    radial-gradient(circle at 6% 72%,  rgba(223,169,69,.12) 0 18%, transparent 18%),
+    radial-gradient(circle at 94% 88%, rgba(226,154,147,.13) 0 20%, transparent 20%),
+    radial-gradient(rgba(63,93,69,.055) 1px, transparent 1px);
+  background-size:auto,auto,auto,auto,18px 18px;
+  background-attachment:fixed;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:720px;margin:0 auto;padding:28px 18px 90px;}
+
+/* ---------- 飾りの糸ステッチ ---------- */
+.stitch{height:0;border-top:3px dashed var(--line);margin:26px 6px;}
+
+/* ---------- ヘッダー ---------- */
+.hero{
+  position:relative;
+  background:var(--paper);
+  border:3px solid var(--green);
+  border-radius:30px;
+  padding:38px 26px 30px;
+  text-align:center;
+  box-shadow:8px 9px 0 rgba(63,93,69,.16);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:8px;border:2px dashed var(--green-pale);
+  border-radius:22px;pointer-events:none;
+}
+.stamp{
+  width:104px;height:104px;margin:0 auto 14px;border-radius:50%;
+  background:var(--green);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:3px solid var(--paper);
+  box-shadow:0 0 0 3px var(--green), 4px 5px 0 rgba(63,93,69,.22);
+  transform:rotate(-7deg);
+}
+.stamp .en{font-family:'Archivo Black',sans-serif;font-size:11px;letter-spacing:.14em;line-height:1.2;}
+.stamp .yr{font-family:'Archivo Black',sans-serif;font-size:21px;letter-spacing:.04em;line-height:1.15;margin:2px 0;}
+.hero h1{
+  font-size:clamp(23px,5.6vw,32px);font-weight:900;margin:6px 0 4px;
+  letter-spacing:.02em;color:var(--green);
+}
+.hero .sub{
+  display:inline-block;font-family:'Archivo Black',sans-serif;font-size:11px;
+  letter-spacing:.24em;color:var(--pink);margin-bottom:14px;
+}
+.hero p{font-size:14.5px;margin:0;color:#5A6656;}
+.hero .note{
+  display:inline-block;margin-top:16px;background:var(--pink-pale);
+  border:2px solid var(--pink);border-radius:999px;
+  padding:5px 18px;font-size:13px;font-weight:700;color:#A85E56;
+  transform:rotate(-1.5deg);
+}
+
+/* ---------- 進捗 ---------- */
+.progress-wrap{
+  position:sticky;top:0;z-index:20;margin:20px -18px 0;padding:10px 18px;
+  background:rgba(251,245,234,.93);backdrop-filter:blur(6px);
+}
+.progress-label{font-size:12px;font-weight:700;color:var(--green);margin-bottom:5px;display:flex;justify-content:space-between;}
+.progress-bar{height:12px;background:#fff;border:2px solid var(--green);border-radius:999px;overflow:hidden;}
+.progress-fill{height:100%;width:0;background:repeating-linear-gradient(45deg,var(--green-mid) 0 8px,var(--green-pale) 8px 16px);transition:width .35s ease;}
+
+/* ---------- セクション見出し ---------- */
+.sec{
+  display:inline-block;margin:38px 0 8px;padding:8px 20px 8px 16px;
+  background:var(--green);color:#fff;font-weight:900;font-size:15px;
+  border-radius:14px;transform:rotate(-1.2deg);
+  box-shadow:4px 4px 0 rgba(63,93,69,.2);
+}
+.sec .n{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border-radius:50%;background:var(--mustard);color:#fff;
+  font-family:'Archivo Black',sans-serif;font-size:11px;margin-right:9px;vertical-align:-4px;
+}
+
+/* ---------- 質問カード ---------- */
+.q{
+  position:relative;background:var(--paper);
+  border:2.5px solid var(--green);border-radius:22px;
+  padding:24px 22px 22px;margin:16px 0;
+  box-shadow:5px 6px 0 rgba(63,93,69,.13);
+}
+.q:nth-child(even){transform:rotate(.25deg);}
+.q:nth-child(odd){transform:rotate(-.25deg);}
+.q .num{
+  position:absolute;top:-15px;left:18px;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--pink);color:#fff;border:3px solid var(--paper);
+  box-shadow:0 0 0 2px var(--pink);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Archivo Black',sans-serif;font-size:13px;
+  transform:rotate(-8deg);
+}
+.q label.t{display:block;font-weight:700;font-size:16px;margin:6px 0 3px;padding-right:52px;}
+.q .hint{font-size:12.5px;color:#7C8878;margin:0 0 12px;}
+.req{
+  position:absolute;top:-11px;right:18px;
+  background:var(--pink);color:#fff;font-size:10.5px;font-weight:700;
+  padding:2px 11px;border-radius:999px;letter-spacing:.08em;
+  transform:rotate(3deg);box-shadow:2px 2px 0 rgba(226,154,147,.4);
+}
+
+/* ---------- 入力欄 ---------- */
+input[type=text],input[type=url],textarea{
+  width:100%;font-family:inherit;font-size:15.5px;color:var(--ink);
+  background:var(--cream);border:2px solid var(--line);border-radius:14px;
+  padding:12px 14px;transition:.18s;line-height:1.7;
+}
+textarea{min-height:104px;resize:vertical;}
+input:focus,textarea:focus{
+  outline:none;border-color:var(--pink);background:#fff;
+  box-shadow:0 0 0 4px var(--pink-pale);
+}
+input::placeholder,textarea::placeholder{color:#B6BFB0;}
+
+/* ---------- 選択チップ ---------- */
+.opts{display:flex;flex-wrap:wrap;gap:9px;}
+.opt{position:relative;}
+.opt input{position:absolute;opacity:0;width:0;height:0;}
+.opt span{
+  display:inline-block;cursor:pointer;user-select:none;
+  background:#fff;border:2px solid var(--line);border-radius:999px;
+  padding:8px 17px;font-size:14.5px;font-weight:500;transition:.16s;
+}
+.opt span:hover{border-color:var(--green-mid);transform:translateY(-1px);}
+.opt input:checked + span{
+  background:var(--green);border-color:var(--green);color:#fff;font-weight:700;
+  box-shadow:2px 3px 0 rgba(63,93,69,.25);
+}
+.opt.pink input:checked + span{
+  background:var(--pink);border-color:var(--pink);
+  box-shadow:2px 3px 0 rgba(226,154,147,.4);
+}
+.opt input:focus-visible + span{box-shadow:0 0 0 4px var(--pink-pale);}
+.other-in{margin-top:10px;}
+
+/* ---------- 送信 ---------- */
+.send-area{text-align:center;margin-top:40px;}
+button.send{
+  font-family:inherit;font-size:18px;font-weight:900;letter-spacing:.06em;
+  color:#fff;background:var(--pink);
+  border:3px solid var(--paper);border-radius:999px;
+  padding:17px 62px;cursor:pointer;
+  box-shadow:0 0 0 3px var(--pink), 5px 7px 0 rgba(226,154,147,.45);
+  transition:.15s;
+}
+button.send:hover{transform:translateY(-2px);box-shadow:0 0 0 3px var(--pink),5px 10px 0 rgba(226,154,147,.45);}
+button.send:active{transform:translateY(2px);box-shadow:0 0 0 3px var(--pink),3px 3px 0 rgba(226,154,147,.45);}
+button.send:disabled{opacity:.6;cursor:wait;transform:none;}
+.send-area .memo{font-size:12.5px;color:#7C8878;margin-top:14px;}
+
+.err{
+  display:none;margin:18px 0 0;background:#FDECEA;border:2px solid #E08C82;
+  border-radius:14px;padding:12px 16px;font-size:14px;color:#A8453A;font-weight:700;
+}
+.q.invalid{border-color:var(--pink);box-shadow:5px 6px 0 rgba(226,154,147,.35);}
+
+/* ---------- 完了画面 ---------- */
+#done{display:none;text-align:center;padding:60px 24px;}
+#done .badge{
+  width:130px;height:130px;margin:0 auto 24px;border-radius:50%;
+  background:var(--green);color:#fff;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;border:4px solid var(--paper);
+  box-shadow:0 0 0 4px var(--green),6px 8px 0 rgba(63,93,69,.2);
+  transform:rotate(-6deg);
+}
+#done .badge .en{font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:.16em;}
+#done .badge .mk{font-size:40px;line-height:1;margin:4px 0;}
+#done h2{color:var(--green);font-size:24px;font-weight:900;margin:0 0 14px;}
+#done p{font-size:15px;color:#5A6656;margin:0 0 6px;}
+
+footer{text-align:center;font-size:11.5px;color:#9AA495;margin-top:46px;letter-spacing:.1em;}
+@media (max-width:520px){
+  .wrap{padding:16px 12px 70px;}
+  .q{padding:22px 16px 18px;}
+  .hero{padding:30px 16px 24px;}
+  button.send{width:100%;padding:16px 0;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ ヘッダー ============ -->
+  <header class="hero">
+    <div class="stamp">
+      <div class="en">ESTD</div>
+      <div class="yr">RMC</div>
+      <div class="en">SALON</div>
+    </div>
+    <div class="sub">PRE-CONSULTING SHEET</div>
+    <h1>売上アップ道場<br>個別相談 事前シート</h1>
+    <p>
+      当日の相談を“あなたにぴったりの時間”にするためのシートです。<br>
+      むずかしく考えずに、思いつくままで大丈夫◎
+    </p>
+    <div class="note">すべての項目にご記入ください🌿</div>
+  </header>
+
+  <!-- ============ 進捗バー ============ -->
+  <div class="progress-wrap">
+    <div class="progress-label"><span>入力ぐあい</span><span id="pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
+  </div>
+
+  <form id="form" novalidate>
+
+    <!-- ============ ① あなたのこと ============ -->
+    <div class="sec"><span class="n">1</span>あなたのこと</div>
+
+    <div class="q">
+      <div class="num">01</div><div class="req">必須</div>
+      <label class="t" for="name">お名前（私がお呼びするお名前）</label>
+      <input type="text" id="name" name="name" placeholder="例）はな" data-required>
+    </div>
+
+    <div class="q">
+      <div class="num">02</div><div class="req">必須</div>
+      <label class="t" for="brand">ブランド名</label>
+      <p class="hint">まだ決まっていない場合は「未定」とご記入ください</p>
+      <input type="text" id="brand" name="brand" placeholder="例）dolloi" data-required>
+    </div>
+
+    <div class="q">
+      <div class="num">03</div><div class="req">必須</div>
+      <label class="t" for="instagram">Instagramのリンク</label>
+      <input type="url" id="instagram" name="instagram" placeholder="https://www.instagram.com/..." data-required>
+    </div>
+
+    <div class="q">
+      <div class="num">04</div><div class="req">必須</div>
+      <label class="t" for="meeting">決定した面談日時</label>
+      <input type="text" id="meeting" name="meeting" placeholder="例）8月20日（木）14:00〜" data-required>
+    </div>
+
+    <div class="q">
+      <div class="num">05</div><div class="req">必須</div>
+      <label class="t">いまの売上帯（参加している部屋）</label>
+      <div class="opts" data-name="revenue" data-type="radio" data-required>
+        <label class="opt"><input type="radio" name="revenue" value="0〜5万円"><span>0〜5万円</span></label>
+        <label class="opt"><input type="radio" name="revenue" value="5〜10万円"><span>5〜10万円</span></label>
+        <label class="opt"><input type="radio" name="revenue" value="10〜20万円"><span>10〜20万円</span></label>
+        <label class="opt"><input type="radio" name="revenue" value="20〜30万円"><span>20〜30万円</span></label>
+        <label class="opt"><input type="radio" name="revenue" value="30〜50万円"><span>30〜50万円</span></label>
+        <label class="opt"><input type="radio" name="revenue" value="50万円以上"><span>50万円以上</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <div class="num">06</div><div class="req">必須</div>
+      <label class="t">活動歴</label>
+      <div class="opts" data-name="career" data-type="radio" data-required>
+        <label class="opt"><input type="radio" name="career" value="半年未満"><span>半年未満</span></label>
+        <label class="opt"><input type="radio" name="career" value="半年〜1年"><span>半年〜1年</span></label>
+        <label class="opt"><input type="radio" name="career" value="1年〜2年"><span>1年〜2年</span></label>
+        <label class="opt"><input type="radio" name="career" value="3年以上"><span>3年以上</span></label>
+      </div>
+    </div>
+
+    <div class="stitch"></div>
+
+    <!-- ============ ② いまの販売のこと ============ -->
+    <div class="sec"><span class="n">2</span>いまの販売のこと</div>
+
+    <div class="q">
+      <div class="num">07</div><div class="req">必須</div>
+      <label class="t">主な販売方法（複数OK）</label>
+      <div class="opts" data-name="sales_methods" data-type="checkbox" data-required>
+        <label class="opt pink"><input type="checkbox" name="sales_methods" value="オンライン販売（BASE・Shopifyなど）"><span>オンライン販売</span></label>
+        <label class="opt pink"><input type="checkbox" name="sales_methods" value="委託販売"><span>委託販売</span></label>
+        <label class="opt pink"><input type="checkbox" name="sales_methods" value="対面イベント・マルシェ"><span>対面イベント・マルシェ</span></label>
+        <label class="opt pink"><input type="checkbox" name="sales_methods" value="常設販売"><span>常設販売</span></label>
+        <label class="opt pink"><input type="checkbox" name="sales_methods" value="__other__" data-other="sales_methods_other"><span>その他</span></label>
+      </div>
+      <input class="other-in" type="text" id="sales_methods_other" placeholder="その他の場合はこちらに✏️" hidden>
+    </div>
+
+    <div class="q">
+      <div class="num">08</div><div class="req">必須</div>
+      <label class="t">いまの販売スタイル</label>
+      <p class="hint">例）月に2回販売会をしている／常設販売をしている／いまは準備中 など</p>
+      <textarea id="sales_style" name="sales_style" placeholder="ざっくりで大丈夫です" data-required></textarea>
+    </div>
+
+    <div class="q">
+      <div class="num">09</div><div class="req">必須</div>
+      <label class="t">いまの販売で「うまくいっている」と感じる部分（複数OK）</label>
+      <div class="opts" data-name="working_well" data-type="checkbox" data-required>
+        <label class="opt"><input type="checkbox" name="working_well" value="商品デザイン"><span>商品デザイン</span></label>
+        <label class="opt"><input type="checkbox" name="working_well" value="世界観・写真"><span>世界観・写真</span></label>
+        <label class="opt"><input type="checkbox" name="working_well" value="発信・SNS運用"><span>発信・SNS運用</span></label>
+        <label class="opt"><input type="checkbox" name="working_well" value="お客様対応"><span>お客様対応</span></label>
+        <label class="opt"><input type="checkbox" name="working_well" value="リピーターとの関係"><span>リピーターとの関係</span></label>
+        <label class="opt"><input type="checkbox" name="working_well" value="__other__" data-other="working_well_other"><span>その他</span></label>
+      </div>
+      <input class="other-in" type="text" id="working_well_other" placeholder="その他の場合はこちらに✏️" hidden>
+    </div>
+
+    <div class="q">
+      <div class="num">10</div><div class="req">必須</div>
+      <label class="t">最近、販売や発信でモヤモヤしていること</label>
+      <textarea id="worries" name="worries" placeholder="まとまっていなくて大丈夫。思っていることをそのまま🌿" data-required></textarea>
+    </div>
+
+    <div class="q">
+      <div class="num">11</div><div class="req">必須</div>
+      <label class="t">「うまくいっていない」「課題だな」と感じている部分</label>
+      <textarea id="challenges" name="challenges" placeholder="例）告知しても反応が薄い、値上げに踏み切れない など" data-required></textarea>
+    </div>
+
+    <div class="stitch"></div>
+
+    <!-- ============ ③ ブランドのこと ============ -->
+    <div class="sec"><span class="n">3</span>ブランドのこと</div>
+
+    <div class="q">
+      <div class="num">12</div><div class="req">必須</div>
+      <label class="t">あなたのブランドを一言で表すと？</label>
+      <p class="hint">例）「自然体」「上品」「芯のある女性らしさ」など</p>
+      <input type="text" id="brand_word" name="brand_word" placeholder="ひとことで✍️" data-required>
+    </div>
+
+    <div class="q">
+      <div class="num">13</div><div class="req">必須</div>
+      <label class="t">ブランドを通して、お客様にどんな気持ちを届けたい？</label>
+      <textarea id="brand_feeling" name="brand_feeling" placeholder="言葉にしてみると、けっこう発見があります◎" data-required></textarea>
+    </div>
+
+    <div class="q">
+      <div class="num">14</div><div class="req">必須</div>
+      <label class="t">理想のブランド像・目指したい方向性</label>
+      <textarea id="brand_ideal" name="brand_ideal" placeholder="こうなったら嬉しいな、という未来を自由に" data-required></textarea>
+    </div>
+
+    <div class="stitch"></div>
+
+    <!-- ============ ④ 当日について ============ -->
+    <div class="sec"><span class="n">4</span>当日について</div>
+
+    <div class="q">
+      <div class="num">15</div><div class="req">必須</div>
+      <label class="t">告知・発信・販売の流れで、特に苦手な部分（複数OK）</label>
+      <div class="opts" data-name="weak_points" data-type="checkbox" data-required>
+        <label class="opt pink"><input type="checkbox" name="weak_points" value="テーマ決め"><span>テーマ決め</span></label>
+        <label class="opt pink"><input type="checkbox" name="weak_points" value="告知スケジュール"><span>告知スケジュール</span></label>
+        <label class="opt pink"><input type="checkbox" name="weak_points" value="発信内容"><span>発信内容</span></label>
+        <label class="opt pink"><input type="checkbox" name="weak_points" value="LP・販売ページ設計"><span>LP・販売ページ設計</span></label>
+        <label class="opt pink"><input type="checkbox" name="weak_points" value="販売会後の分析"><span>販売会後の分析</span></label>
+        <label class="opt pink"><input type="checkbox" name="weak_points" value="__other__" data-other="weak_points_other"><span>その他</span></label>
+      </div>
+      <input class="other-in" type="text" id="weak_points_other" placeholder="その他の場合はこちらに✏️" hidden>
+    </div>
+
+    <div class="q">
+      <div class="num">16</div><div class="req">必須</div>
+      <label class="t">今回の相談で、どんなアドバイスや整理をしてほしい？</label>
+      <textarea id="advice_wanted" name="advice_wanted" placeholder="ここが一番大事なところ！遠慮なくどうぞ" data-required></textarea>
+    </div>
+
+    <div class="err" id="err"></div>
+
+    <div class="send-area">
+      <button type="submit" class="send" id="submitBtn">送信する 🌿</button>
+      <p class="memo">いただいた内容は、当日の面談以外では使用しません。</p>
+    </div>
+  </form>
+
+  <!-- ============ 完了画面 ============ -->
+  <div id="done">
+    <div class="badge">
+      <div class="en">THANK</div>
+      <div class="mk">🌿</div>
+      <div class="en">YOU!</div>
+    </div>
+    <h2>ご回答ありがとうございます！</h2>
+    <p>当日は、このシートをもとに<br>「あなたに合った販売会設計・戦略」を一緒に整理していきます。</p>
+    <p>楽しみにしていてください🌷</p>
+  </div>
+
+  <footer>REBEL MUSES CRAFT ／ 売上アップ道場</footer>
+</div>
+
+<script>
+/* ===================================================================
+   ▼▼▼ ここに GAS のデプロイURLを貼ってください ▼▼▼
+   =================================================================== */
+const ENDPOINT = 'ここにGASのウェブアプリURLを貼る';
+/* =================================================================== */
+
+const form = document.getElementById('form');
+const errBox = document.getElementById('err');
+const btn = document.getElementById('submitBtn');
+
+/* --- 「その他」チェックで入力欄を出す --- */
+document.querySelectorAll('[data-other]').forEach(cb => {
+  const target = document.getElementById(cb.dataset.other);
+  cb.addEventListener('change', () => {
+    target.hidden = !cb.checked;
+    if (cb.checked) target.focus();
+    updateProgress();
+  });
+});
+
+/* --- 進捗バー --- */
+const totalQ = document.querySelectorAll('.q').length;
+function updateProgress(){
+  let filled = 0;
+  document.querySelectorAll('.q').forEach(q => {
+    const txt = q.querySelector('input[type=text],input[type=url],textarea');
+    const chk = q.querySelector('input[type=radio],input[type=checkbox]');
+    if (chk) {
+      if (q.querySelector('input:checked')) filled++;
+    } else if (txt && txt.value.trim()) filled++;
+  });
+  const pct = Math.round(filled / totalQ * 100);
+  document.getElementById('fill').style.width = pct + '%';
+  document.getElementById('pct').textContent = pct + '%';
+}
+form.addEventListener('input', updateProgress);
+form.addEventListener('change', updateProgress);
+
+/* --- 値の取り出し --- */
+function getValue(name){
+  const group = document.querySelector('[data-name="' + name + '"]');
+  if (group) {
+    const vals = Array.from(group.querySelectorAll('input:checked')).map(i => {
+      if (i.value === '__other__') {
+        const t = document.getElementById(i.dataset.other);
+        return t && t.value.trim() ? 'その他：' + t.value.trim() : 'その他';
+      }
+      return i.value;
+    });
+    return group.dataset.type === 'radio' ? (vals[0] || '') : vals;
+  }
+  const el = document.getElementById(name);
+  return el ? el.value.trim() : '';
+}
+
+/* --- 送信 --- */
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  errBox.style.display = 'none';
+  document.querySelectorAll('.q.invalid').forEach(q => q.classList.remove('invalid'));
+
+  // 必須チェック
+  const missing = [];
+  document.querySelectorAll('[data-required]').forEach(el => {
+    const card = el.closest('.q');
+    const ok = el.dataset.name
+      ? !!el.querySelector('input:checked')
+      : !!el.value.trim();
+    if (!ok) { missing.push(card.querySelector('.t').textContent); card.classList.add('invalid'); }
+  });
+  if (missing.length) {
+    errBox.textContent = '「' + missing.join('」「') + '」が未入力です🌿';
+    errBox.style.display = 'block';
+    document.querySelector('.q.invalid').scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+
+  const payload = {
+    name: getValue('name'),
+    brand: getValue('brand'),
+    instagram: getValue('instagram'),
+    meeting: getValue('meeting'),
+    revenue: getValue('revenue'),
+    career: getValue('career'),
+    sales_methods: getValue('sales_methods'),
+    sales_style: getValue('sales_style'),
+    working_well: getValue('working_well'),
+    worries: getValue('worries'),
+    challenges: getValue('challenges'),
+    brand_word: getValue('brand_word'),
+    brand_feeling: getValue('brand_feeling'),
+    brand_ideal: getValue('brand_ideal'),
+    weak_points: getValue('weak_points'),
+    advice_wanted: getValue('advice_wanted')
+  };
+
+  btn.disabled = true;
+  btn.textContent = '送信中…';
+
+  try {
+    // Content-Type を text/plain にすると CORS のプリフライトを回避できます
+    await fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+    showDone();
+  } catch (err) {
+    // 念のため no-cors で再送（レスポンスは読めませんが記録はされます）
+    try {
+      await fetch(ENDPOINT, { method:'POST', mode:'no-cors', body: JSON.stringify(payload) });
+      showDone();
+    } catch (e2) {
+      btn.disabled = false;
+      btn.textContent = '送信する 🌿';
+      errBox.textContent = '送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。';
+      errBox.style.display = 'block';
+    }
+  }
+});
+
+function showDone(){
+  document.getElementById('form').style.display = 'none';
+  document.querySelector('.progress-wrap').style.display = 'none';
+  document.querySelector('header.hero').style.display = 'none';
+  document.querySelectorAll('.sec,.stitch').forEach(el => el.style.display = 'none');
+  document.getElementById('done').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
